@@ -1,8 +1,5 @@
 ---
-# try also 'default' to start simple
 theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://images.unsplash.com/photo-1677182821372-89f3d07a23a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80
 # apply any windi css classes to the current slide
 class: 'text-center'
@@ -25,15 +22,12 @@ css: unocss
 # Bult-in Vue Components
 
 Usefull tools for a Web Developer
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
 
 ---
 
-# What is Slidev?
+# What is a Bult-in Component?
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+A Bult-in component is a a component that can be used directly in templates without needing to be registered.
 
 - 📝 **Text-based** - focus on the content with Markdown, and then style them later
 - 🎨 **Themable** - theme can be shared and used with npm packages
@@ -46,7 +40,7 @@ Slidev is a slides maker and presenter designed for developers, consist of the f
 <br>
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+Read more about [Bult-in Component](https://vuejs.org/api/built-in-components.html)
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
