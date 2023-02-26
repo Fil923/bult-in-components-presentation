@@ -19,96 +19,66 @@ drawings:
 css: unocss
 ---
 
-# Bult-in Vue Components
+# Built-in Vue Components
 
 Usefull tools for a Web Developer
 
 ---
 
-# What is a Bult-in Component?
+# What is a Built-in Component?
 
-A Bult-in component is a a component that can be used directly in templates without needing to be registered.
+A Built-in component is a a component that can be used directly in templates without needing to be registered.
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+- 🔴 **Transition** - provides animated transition effects to a single element or component.
+- 🎨 **TransitionGroup** - provides transition effects for multiple elements or components in a list.
+- 👩‍⚕️ **KeepAlive** - Caches dynamically toggled components wrapped inside.
+- 🧙 **Teleport** - Renders its slot content to another part of the DOM.
+- ⏳ **Suspense** - Used for orchestrating nested async dependencies in a component tree (Experimental).
 
 <br>
 <br>
+<br>
+<br>
 
-Read more about [Bult-in Component](https://vuejs.org/api/built-in-components.html)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+Read more about [Built-in Component](https://vuejs.org/api/built-in-components.html)
 
 ---
 
-# Navigation
+# Transition
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+It can be used to apply enter and leave animations on elements or components passed to it via its default slot. The enter or leave can be triggered by one of the following:
 
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+- Conditional rendering via v-if
+- Conditional display via v-show
+- Dynamic components toggling via the component special element
 
 ---
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
 
-# Code
+# Transition Props
 
-Use code snippets and get the highlighting directly![^1]
+<br>
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+```ts {all|2|3|4|5|6|7|8-16}
+interface TransitionProps {
+  name?: string
+  css?: boolean
+  type?: 'transition' | 'animation'
+  duration?: number | { enter: number; leave: number }
+  mode?: 'in-out' | 'out-in' | 'default'
+  appear?: boolean
+  enterFromClass?: string
+  enterActiveClass?: string
+  enterToClass?: string
+  appearFromClass?: string
+  appearActiveClass?: string
+  appearToClass?: string
+  leaveFromClass?: string
+  leaveActiveClass?: string
+  leaveToClass?: string
 }
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+Read more about [Props and events](https://vuejs.org/api/built-in-components.html#transition) for Transition component
 
 <style>
 .footnotes-sep {
@@ -124,35 +94,11 @@ function updateUser(id: number, update: User) {
 
 ---
 
-# Components
+# Transition Example
 
-<div grid="~ cols-2 gap-4">
-<div>
+A simple example for Transition component inside slide
 
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
+<TransitionComponent />
 
 
 ---
