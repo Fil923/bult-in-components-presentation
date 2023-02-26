@@ -80,29 +80,59 @@ interface TransitionProps {
 
 Read more about [Props and events](https://vuejs.org/api/built-in-components.html#transition) for Transition component
 
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
 ---
 
 # Transition Example
 
-A simple example for Transition component inside slide
+A simple example for Transition component
 
 <TransitionComponent />
 
+---
+
+# TransitionGroup
+
+<div>
+TransitionGroup supports the same props, CSS transition classes, and JavaScript hook listeners as Transition, with the following differences:
+
+<br>
+<br>
+
+- By default, it doesn't render a wrapper element. But you can specify an element to be rendered with the tag prop.
+- Transition modes are not available, because we are no longer alternating between mutually exclusive elements.
+- Elements inside are always required to have a unique key attribute.
+- CSS transition classes will be applied to individual elements in the list, not to the group / container itself.
+
+</div>
 
 ---
-class: px-20
+---
+
+# TransitionGroup Props
+
+<div>
+TransitionGroup accepts the same props as Transition except mode, plus two additional props:
+
+```ts {all|2|3}
+interface TransitionGroupProps extends Omit<TransitionProps, 'mode'> {
+  tag?: string
+  moveClass?: string
+}
+```
+
+Read more about [Props and events](https://vuejs.org/api/built-in-components.html#transitiongroup) for TransitionGroup component
+
+</div>
+
+---
+---
+
+# TransitionGroup Example
+
+A simple example for TransitionGroup component
+
+<TransitionGroupComponent />
+
 ---
 
 # Themes
